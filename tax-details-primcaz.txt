@@ -1,0 +1,83 @@
+{
+	"cac:TaxTotal": {
+		"cbc:TaxAmount": {
+			"@currencyID": "EUR",
+			"$": "-28.94"
+		},
+		"cac:TaxSubtotal": [{
+			"cbc:TaxableAmount": {
+				"@currencyID": "EUR",
+				"$": -137.82
+			},
+			"cbc:TaxAmount": {
+				"@currencyID": "EUR",
+				"$": -28.94
+			},
+			"cbc:Percent": {
+				"$": "21.00"
+			},
+			"cac:TaxCategory": {
+				"cbc:ID": "H",
+				"cbc:Percent": "21.00",
+				"cac:TaxScheme": {
+					"cbc:ID": "VAT"
+				}
+			}
+		}]
+	}
+}
+
+
+
+$SubTaxTotal.map(elem => elem.map( x => {'Amount': x.Amount,'TaxAmount':x.TaxAmount,'Percent':x['VAT _'],'Taxcategorycode': x.Taxcategorycode})).map(elem => elem.reduce((accum,x) => {'Amount': accum.Amount+x.Amount,'TaxAmount':accum.TaxAmount+x.TaxAmount,'Percent':accum.Percent,'Taxcategorycode': accum.Taxcategorycode})).map(x => {'TaxableAmount': x.Amount ,'TaxAmount': x.TaxAmount,'Percent':x.Percent,'TaxCategory':{'ID': x.Taxcategorycode,'Percent':x.Percent}}).map(elem => elem.mapValues((value,key) => ((value instanceof Number && value==0E-20) ?  0 : value)))
+
+$SubTaxTotal.map(elem => {'cbc:TaxableAmount':{'@currencyID': 'EUR','$': elem.TaxableAmount},'cbc:TaxAmount':{'@currencyID': 'EUR','$':elem.TaxAmount},'cbc:Percent':{'$':parseFloat(elem.Percent).toFixed(2)},'cac:TaxCategory':{'cbc:ID':elem.TaxCategory.ID,'cbc:Percent':parseFloat(elem.TaxCategory.Percent).toFixed(2),'cac:TaxScheme':{'cbc:ID': 'VAT'}}})
+
+
+{
+	"@adm_nr": "1025",
+	"@invoice_nr": "102500000756",
+	"@linenr_lshil": "2",
+	"@seqnr_lshih": "1",
+	"item_code": "9789491743030",
+	"discount_calculation": "10202",
+	"discount_calculation_text": "Regelkorting over staffelkorting",
+	"description": "Procesmanagement in de praktijk ISBN 9789491743030",
+	"delivery_date": "2018-07-10",
+	"quantity": "18.0",
+	"seqnr_lshoh": "0",
+	"linenr_lshol": "0",
+	"vat_code": "91",
+	"pricelist_code": null,
+	"price": "59.95",
+	"line_discount": "30.0",
+	"discount_type": "11501",
+	"discount_type_text": "Percentage",
+	"line_disc_amt_ex_vat": "305.41",
+	"price_ex_vat_inc_disc": "39.589",
+	"scp": "0.0",
+	"cost_unit": null,
+	"cost_center": "99",
+	"price_surcharge": "0.0",
+	"amt_ex_vat_inc_disc": "712.61",
+	"line_vat_amt_inc_disc": "42.76",
+	"price_ex_vat_ex_disc": "56.557",
+	"amt_ex_vat_ex_disc": "1018.02",
+	"amt_inc_vat_inc_disc": "755.37",
+	"multidim_code_1": null,
+	"multidim_code_2": "1025.01",
+	"multidim_code_3": null,
+	"multidim_code_4": null,
+	"multidim_code_5": null,
+	"textline": "__",
+	"acc_nr": null,
+	"itemgroup_code": null,
+	"euserid_lc": "ISNIJDERS",
+	"date_lc": "2018-07-10",
+	"time_lc": "13:40:51",
+	"record_to_handle": "true",
+	"record_with_error": "false",
+	"field_list": {
+		"@xsi:nil": "true"
+	}
+}

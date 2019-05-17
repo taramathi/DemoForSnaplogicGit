@@ -1,0 +1,71 @@
+To get the list of the invoices:
+
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:ns0="urn:com.exact.efe:lshih:lshih">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns0:search>
+            <ns0:pi_csecurity_data>$pi_csecurity_data</ns0:pi_csecurity_data>
+            <ns0:pi_dscontext6>
+                <ns0:itmpLshih adm_nr="1025" invoice_nr="206400007156">
+			<ns0:invoice_date>2018-08-10</ns0:invoice_date>
+			<ns0:invoice_date>2018-07-10</ns0:invoice_date>
+                </ns0:itmpLshih>
+            </ns0:pi_dscontext6>
+        </ns0:search>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+==========================
+To get the Debter details:
+
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:ns0="urn:com.exact.efe:debtor:debtor">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns0:search>
+            <ns0:pi_csecurity_data>$pi_csecurity_data</ns0:pi_csecurity_data>
+            <ns0:pi_dscontext6>
+                <ns0:itmpDebtor adm_nr="1025" debtor="70035"></ns0:itmpDebtor>
+            </ns0:pi_dscontext6>
+        </ns0:search>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+=================================
+To get the single invoice details
+
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:ns0="urn:com.exact.efe:lshih:lshih">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns0:search>
+            <ns0:pi_csecurity_data>$pi_csecurity_data</ns0:pi_csecurity_data>
+            <ns0:pi_dscontext6>
+                <ns0:itmpLshih adm_nr="1025" invoice_nr="102500000756" ></ns0:itmpLshih>
+            </ns0:pi_dscontext6>
+        </ns0:search>
+    </SOAP-ENV:Body>undefinedundefinedundefined
+</SOAP-ENV:Envelope>
+
+
+=================================
+To get the invoice line details
+
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:ns0="urn:com.exact.efe:lshil:lshil">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns0:search>
+            <ns0:pi_csecurity_data>$pi_csecurity_data</ns0:pi_csecurity_data>
+            <ns0:pi_dscontext2>
+                <ns0:itmpLshil adm_nr="1025" invoice_nr="102500000756"></ns0:itmpLshil>
+            </ns0:pi_dscontext2>
+        </ns0:search>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
